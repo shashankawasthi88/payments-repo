@@ -16,6 +16,7 @@ files[] = {"id":"536514-041b0424-e9a6-4ccc-b58d-675553600b20","path":"Credit.jso
 
 [config.relations.apiDefinition]
 files[] = {"path":"index.json","metaData":{}}
+files[] = {"path":"postman/schemas/Components.json","metaData":{}}
 
 [config.relations.apiDefinition.metaData]
 type = openapi:3
