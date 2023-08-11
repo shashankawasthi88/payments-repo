@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "8720aff3-bc81-49bc-8767-bd3b1f3c14ec",
+		"name": "Credit",
+		"description": "Buy or rent spacecrafts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "536514-8720aff3-bc81-49bc-8767-bd3b1f3c14ec"
+	},
+	"item": [
+		{
+			"name": "credit",
+			"item": [
+				{
+					"name": "{creditId}",
+					"item": [
+						{
+							"name": "Read a credit",
+							"id": "06c91c95-6259-43d4-b106-befc4180730b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/credit/:creditId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"credit",
+										":creditId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "creditId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "610b6f22-236d-4d45-a76f-a0e84218883b",
+									"name": "The credit corresponding to the provided `creditId`",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/credit/:creditId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"credit",
+												":creditId"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "creditId",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"overDraft\",\n  \"description\": \"<string>\"\n}"
+								},
+								{
+									"id": "982d4412-c8d9-4d6c-ba49-7577b5566942",
+									"name": "No credit found for the provided `creditId`",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/credit/:creditId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"credit",
+												":creditId"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "creditId",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "ce0a5eb1-a64a-409e-a722-c79ed816b919",
+									"name": "Unexpected error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/credit/:creditId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"credit",
+												":creditId"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "creditId",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "5b3d035c-3883-4500-b8ce-1aed075df67c",
+									"name": "Unauthorized access",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/credit/:creditId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"credit",
+												":creditId"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "creditId",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"velit Lorem qui ullamco\"\n}"
+								}
+							]
+						}
+					],
+					"id": "d810d9f8-afe7-40d8-a4c0-b14bd80836dd"
+				}
+			],
+			"id": "daa48dd5-4f14-4cf2-8ffc-9486739ee920"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-Api-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0efacc05-7f9b-464a-a312-eb2d355d8130",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8f1e83f5-9957-4691-b89b-3431ea69e5b6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "bcf1dd11-ed3e-45da-a300-fc04ac045a66",
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

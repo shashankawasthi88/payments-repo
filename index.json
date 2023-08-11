@@ -1,0 +1,126 @@
+{
+  "openpi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sample API",
+    "description": "Buy or rent spacecrafts"
+  },
+  "paths": {
+    "/credit/{creditId}": {
+      "parameters": [
+        {
+          "name": "creditId",
+          "description": "The unique identifier of the credit",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/CreditId"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Read a credit",
+        "responses": {
+          "200": {
+            "description": "The credit corresponding to the provided `creditId`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Credit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No credit found for the provided `creditId`",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreditId": {
+        "description": "The unique identifier of a credit",
+        "type": "string"
+      },
+      "Credit": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/CreditId"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "overDraft",
+              "UnderDraft"
+            ]
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "description": "A human readable error message",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKey": []
+    }
+  ]
+}
